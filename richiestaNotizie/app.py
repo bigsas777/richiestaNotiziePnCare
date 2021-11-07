@@ -1,13 +1,13 @@
 from flask import Flask, Response, jsonify
 from bs4 import BeautifulSoup
 import requests
-import json
+# import json
 
 app = Flask(__name__)
 
 @app.route('/')
 def richiestaNotizie():
-    url = "https://www.comune.pordenone.it/it"                 #  pncare.pythonanywhere.com
+    url = "https://www.comune.pordenone.it/it"
 
     result = requests.get(url)
     doc = BeautifulSoup(result.text, "html.parser")
@@ -66,4 +66,4 @@ def richiestaNotizie():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(port=7777)
